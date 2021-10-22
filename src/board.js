@@ -1,6 +1,8 @@
 
 let canvas;
 let context;
+let player1 = new Player();
+let player2 = new Player();
 
 //A function for drawing one of the checker pieces
 function drawCircle(pos,fillColor){
@@ -20,51 +22,71 @@ function drawCircle(pos,fillColor){
 function draw(){
   context.clearRect(0,0,canvas.width, canvas.height);
 
-  //Drawing the table
-  for(let x=1; x<8;x=x+2){
-    for(let y=0;y<8;y++){
-      if(y%2 == 0){
-        context.fillRect(87.5*x,y*87.5,87.5,87.5);
-      } else {
-        context.fillRect(87.5*(x-1), 87.5*y, 87.5, 87.5);
-      }
-    }
-  }
+  drawGameBoard();
+  drawGamePieces(player1);
+  drawGamePieces(player2);
 
-  //drawing the checker pieces
-    let teamOneMember=0;
-    let teamTwoMember=0;
-    let xVal;
-    let yVal;
-    for(let y=0; y<8; y++){
-      for(let x=1;x<8;x=x+2){
-        if(y<3){
-          if(y%2==0){
-            xVal =43.75+(87.5*x)
-            yVal = 43.75+(87.5*y)
-            drawCircle([xVal, yVal],"red");
-          } else {
-            xVal = 43.75+(87.5*(x-1))
-            yVal = 43.75+(87.5*y)
-            drawCircle([xVal, yVal], "red");
-          }
-          teamTwo[teamTwoMember] = [xVal,yVal];
-          teamTwoMember++;
-        } else if (y>4){
-          if(y%2==0){
-            xVal = 43.75+(87.5*x)
-            yVal = 43.75+(87.5*y)
-            drawCircle([xVal,yVal],"grey");
-          } else {
-            xVal = 43.75+(87.5*(x-1))
-            yVal = 43.75+(87.5*y)
-            drawCircle([xVal, yVal] , "grey");
-          }
-          teamOne[teamOneMember] = [xVal,yVal];
-          teamOneMember++;
-        }
-      }
-    }
+  // //Drawing the table
+  // for(let x=1; x<8;x=x+2){
+  //   for(let y=0;y<8;y++){
+  //     if(y%2 == 0){
+  //       context.fillRect(87.5*x,y*87.5,87.5,87.5);
+  //     } else {
+  //       context.fillRect(87.5*(x-1), 87.5*y, 87.5, 87.5);
+  //     }
+  //   }
+  // }
+
+  // //drawing the checker pieces
+  //   let teamOneMember=0;
+  //   let teamTwoMember=0;
+  //   let xVal;
+  //   let yVal;
+  //   for(let y=0; y<8; y++){
+  //     for(let x=1;x<8;x=x+2){
+  //       if(y<3){
+  //         if(y%2==0){
+  //           xVal =43.75+(87.5*x)
+  //           yVal = 43.75+(87.5*y)
+  //           drawCircle([xVal, yVal],"red");
+  //         } else {
+  //           xVal = 43.75+(87.5*(x-1))
+  //           yVal = 43.75+(87.5*y)
+  //           drawCircle([xVal, yVal], "red");
+  //         }
+  //         teamTwo[teamTwoMember] = [xVal,yVal];
+  //         teamTwoMember++;
+  //       } else if (y>4){
+  //         if(y%2==0){
+  //           xVal = 43.75+(87.5*x)
+  //           yVal = 43.75+(87.5*y)
+  //           drawCircle([xVal,yVal],"grey");
+  //         } else {
+  //           xVal = 43.75+(87.5*(x-1))
+  //           yVal = 43.75+(87.5*y)
+  //           drawCircle([xVal, yVal] , "grey");
+  //         }
+  //         teamOne[teamOneMember] = [xVal,yVal];
+  //         teamOneMember++;
+  //       }
+  //     }
+  //   }
+}
+
+function drawGameBoard(){
+  context.beginPath();
+  context.lineWidth = 2;
+  context.strokeStyle = "black";
+  context.rect(100,50,600,600);
+  context.stroke();
+}
+
+function drawGamePieces(player){
+  if (player == player1) {
+
+  } else if (player == player2){
+
+  }
 }
 
 function reDraw(){

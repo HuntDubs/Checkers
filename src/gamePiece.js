@@ -1,7 +1,13 @@
 
 
 class GamePiece {
-    constructor(player.Player){
+    constructor(){
+        let posistion;
+        let isAlive;
+        let isSelected;
+    }
 
+    validMoves() {
+        
     }
 }
